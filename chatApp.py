@@ -15,6 +15,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 # # Import the colorama library for cross-platform ANSI color support
 # from colorama import Fore, Style
 
+<<<<<<< HEAD
 # # Define a function to print colored text
 # def print_colored(text, color):
 #     print(color + text + Style.RESET_ALL)
@@ -24,12 +25,17 @@ app.config["SESSION_TYPE"] = "filesystem"
 # print_colored("This is green text", Fore.GREEN)
 
 
+=======
+>>>>>>> 34170bc6d504e66ac222195c38321fe1ba83586e
 # Retrieve the room files path from environment variable
 room_files_path = os.getenv('ROOM_FILES_PATH')
 users_path = os.getenv('USERS_PATH')
 # room_files_path = "rooms/"
 # users_path = "users.csv"
+<<<<<<< HEAD
 print(room_files_path)
+=======
+>>>>>>> 34170bc6d504e66ac222195c38321fe1ba83586e
 
 
 
