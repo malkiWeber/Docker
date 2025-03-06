@@ -12,16 +12,24 @@ app.config["SESSION_TYPE"] = "filesystem"
 
 
 
+# # Import the colorama library for cross-platform ANSI color support
+# from colorama import Fore, Style
 
+# # Define a function to print colored text
+# def print_colored(text, color):
+#     print(color + text + Style.RESET_ALL)
+
+# # Usage example
+# print_colored("This is red text", Fore.RED)
+# print_colored("This is green text", Fore.GREEN)
 
 
 # Retrieve the room files path from environment variable
 room_files_path = os.getenv('ROOM_FILES_PATH')
 users_path = os.getenv('USERS_PATH')
-#room_files_path = "rooms/"
-#users_path = "users.csv"
+# room_files_path = "rooms/"
+# users_path = "users.csv"
 print(room_files_path)
-
 
 
 
@@ -157,15 +165,12 @@ def update_chat(room):
     if request.method == 'POST':
         username = session['username']
 
-
         if request.args.get('clear'):
             delete_user_msg(room,username)
         else:
             message = request.form['msg']
 
-
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
 
             # Append the message to the room's unique .txt file
             with open(f'{room_files_path}{room}.txt', 'a', newline='') as file:
@@ -175,8 +180,7 @@ def update_chat(room):
         messages = file.read()
     
     
-    #return [session['username'],messages.split('\n')]
-    return str([session['username'], str(messages.split('\n'))])
+    return jsonify([session['username'], messages])
 
 
 
